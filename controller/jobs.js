@@ -1,9 +1,11 @@
 const data = require('../data/datas.json')
 
+/* data response */
 const getdata = (req, res, next) => {
     res.status(200).json({ data, message:"data succesfully loaded" });
   }
 
+/* data are post req body */
 const getaddjob = (req, res) => {
     var jsondatas = {
       name: req.body.name,
@@ -26,18 +28,19 @@ const getaddjob = (req, res) => {
     }
   }
 
-
+/* jobs are active or not by query */
 const gettype = (req, res) => {
     var types = req.query.types;
     console.log(types);
     if (types === "Active_Jobs") {
       let { type } = data;
-      res.status(200).json({ type, message:"succefully Active jobs type " });
+      res.status(200).json({ type, message:"succefully  jobs are Active " });
     } else {
       res.send({ message: "404",message:"not found" });
     }
   }
 
+/* name  are match by url Doctor*/
 const getname = (req, res) => {
     const names = req.params.name;
     const { jobData } = data;
@@ -50,6 +53,7 @@ const getname = (req, res) => {
     res.status(404).send("error");
   }
 
+/* premium data see , return true or false url */
 const getpremiumsDatas = (req, res) => {
     let { jobData } = data;
     let ispre = req.query.ispre;
@@ -64,6 +68,7 @@ const getpremiumsDatas = (req, res) => {
     }
   }
 
+  /* module exports */
   module.exports = {
     getdata,
     getaddjob,
