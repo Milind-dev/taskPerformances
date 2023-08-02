@@ -21,6 +21,13 @@
         height: 39vh;
         width: 33vh;
     }
+    p{
+        font-weight: bold;
+    }
+    h3{
+        color: white;
+
+    }
 </style>
 <body>
     <h1 class="urls"> URLS </h1>
@@ -46,8 +53,23 @@
                 premium:  "",
                 dateFormat: ""
             }
-
         </textarea>
+    </div>
+
+    <div> 
+        <h3>NOTE for post data:-</h3> 
+        <p>
+            pre_requist_copy  =>
+                    var moment = require('moment');
+                    pm.globals.set("CurrentDatetime",moment().format())
+        </p>
+        
+        <hr />
+        
+        <p>
+            current_data_post_format  => 
+            "dateFormat":"{{CurrentDatetime}}"
+        </p>
     </div>
     
 </body>
