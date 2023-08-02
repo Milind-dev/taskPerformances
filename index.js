@@ -1,4 +1,6 @@
 const express = require("express");
+var cookieParser = require('cookie-parser')
+
 const path = require("path");
 const bodyParser = require("body-parser");
 // const expressSession = require("express-session")
@@ -13,19 +15,25 @@ const middlewares = function (req, res, next) {
   next();
 };
 
+const cookiestore = function(req,res,next){
+  res.cookie("names", 'value', {maxAge: 3600});
+  next()
+}
+
 app.use(express.json());
+app.use(cookieParser())
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(middlewares);
 
-app.use("/", middlewares, productRouter);
+app.use("/", middlewares,cookiestore, productRouter);
 app.use("/task", middlewares, productRouter);
 app.use("/task/addjob", middlewares, productRouter);
 app.use("/task/job/premiumsDatas", middlewares, productRouter);
 // app.use("/task/premium",middlewares,productRouter)
 // app.use("/task/premium",productRouter)
 
-app.use("/public", async (req, res) => {
+app.use("/public",async (req, res) => {
   res.sendFile(path.join(__dirname, "public", "home.html"));
 });
 app.listen(port, () => {
