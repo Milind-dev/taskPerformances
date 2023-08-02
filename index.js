@@ -16,7 +16,7 @@ const middlewares = function (req, res, next) {
 };
 
 const cookiestore = function(req,res,next){
-  res.cookie("names", 'value', {maxAge: 3600});
+  res.cookie("job apis", 'sample_data', {maxAge: 3600});
   next()
 }
 
