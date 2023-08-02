@@ -10,5 +10,4 @@
 ## Note: - 
 ### http://localhost:3000/ this url set cookie in Broweser Application  Storage
 
-### http://localhost:3000/task/job/premiumsDatas?ispre=true
-#### this url set true or false boolean. here set true. set to try false ispre = false
+### http://localhost:3000/task/job/premiumsDatas?ispre=true  this url set true or false boolean. here set true. set to try false ispre = false
